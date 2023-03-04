@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+$tc: #ffffff;
+$icw: #ffffff;
+$icy: rgb(199, 108, 5);
+$hc: rgb(227, 87, 213);
+
+@mixin display($jc: center, $ai: center, $fw: wrap) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $fw;
+}
+@mixin Font($fs:16px,$fw:400,$c:#ffffff){
+    font-size: $fs;
+    font-weight: $fw;
+    color:$c;
+}
+
+
+
+%button {
+    width: 13%;
+    @include display;
+    border-radius: 8px;
+    background-color: #ff5ea3;
+    height: 45px;
+   
+    transition-duration: 0.5s;
+    &:hover {
+        transform: scale(1.2);
+        color: #ffffff;
+        background-color: rgb(227, 87, 213);
+    }
+    a {
+        font-size: 17px;
+        color: white;
+    }
+}
+
+@mixin title ($fs:64px,$fw:500){
+
+   h1{ font-size: $fs;
+    font-weight:$fw;
+    color: #ffffff;
+    @include display;
+}
+
+    span {
+        font-size: $fs;
+        font-weight: $fw;
+        color: #ff5ea3;
+    }
+}

@@ -1,0 +1,1786 @@
+@use "concept";
+
+body {
+    .title {
+        @include concept.title;
+    }
+
+    @include concept.display;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #151938;
+    font-family: "Poppins", sans-serif;
+
+    nav.nav-bar {
+        padding: 5px 10px;
+        width: 100%;
+        @include concept.display;
+
+        .nav-conteiner {
+            padding: 30px 0;
+            width: 90%;
+            @include concept.display($jc: space-between);
+
+            .nav-logo {
+                width: 10%;
+                @include concept.display($jc: flex-start);
+                img {
+                    width: 100px;
+                }
+            }
+            .nav-menu {
+                width: 40%;
+                @include concept.display($jc: flex-end);
+
+                ul {
+                    width: 100%;
+                    @include concept.display($jc: space-between);
+                    list-style: none;
+                    li {
+                        @include concept.display($jc: space-between);
+                        a {
+                            @include concept.Font;
+                        }
+                    }
+                }
+            }
+            .button {
+                @extend %button;
+            }
+            .mobile-menu {
+                @include concept.display;
+                display: none;
+                input {
+                    display: none;
+
+                    &:checked ~ .menu-mobile {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                    &:checked + label i:first-child {
+                        display: none;
+                    }
+                    &:checked + label i:last-child {
+                        display: block;
+                    }
+                }
+                label {
+                    position: relative;
+                    z-index: 999;
+
+                    i:last-child {
+                        display: none;
+                    }
+                }
+
+                .menu-mobile {
+                    img {
+                        position: relative;
+                        z-index: 999;
+                        width: 20%;
+                    }
+                    visibility: hidden;
+                    opacity: 0;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #151938;
+                    transition-duration: 0.5s;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    ul {
+                        width: 100%;
+                        padding-top: 80px;
+                        @include concept.display;
+                        flex-direction: column;
+                        line-height: 50px;
+                        li {
+                            @include concept.display;
+                            &:last-child a {
+                                margin-top: 20px;
+                            }
+                            a {
+                                font-size: 20px;
+                                font-weight: 400;
+                                color: white;
+                            }
+                        }
+                    }
+                    .menu-button {
+                        margin-top: 50px;
+                        width: 90%;
+                        @include concept.display;
+                        border-radius: 8px;
+                        background-color: #ff5ea3;
+                        height: 55px;
+
+                        transition-duration: 0.5s;
+                        &:hover {
+                            transform: scale(1.2);
+                            color: #ffffff;
+                            background-color: rgb(227, 87, 213);
+                        }
+                        a {
+                            font-size: 17px;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .overlay-img {
+        width: 100%;
+
+        img {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            z-index: -1;
+        }
+    }
+    .overlay-color {
+        width: 90%;
+        background-image: radial-gradient(at top right, #b265ff 0%, #0e278008 45%);
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        z-index: -1;
+        opacity: 0.7;
+    }
+
+    .sec-1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .conteiner {
+            margin-top: 90px;
+            width: 90%;
+            @include concept.display($jc: space-between);
+            .left {
+                padding: 5px 5px 5px 20px;
+                width: 50%;
+                @include concept.display($ai: flex-start);
+                flex-direction: column;
+                .title {
+                    width: 83%;
+                    padding-bottom: 45px;
+                    line-height: 75px;
+                    h1 {
+                        @include concept.title;
+                    }
+                }
+                .text {
+                    width: 100%;
+                    @include concept.display($jc: flex-start);
+                    p {
+                        @include concept.Font($c: rgb(181, 167, 167));
+                        width: 78%;
+                        padding-bottom: 45px;
+                    }
+                }
+
+                .head {
+                    width: 100%;
+                    @include concept.display($jc: flex-start);
+
+                    i {
+                        font-size: 25px;
+                        color: #ff5ea3;
+                        background-color: rgba(194, 175, 175, 0.108);
+                        border-radius: 50%;
+                        width: 50px;
+                        height: 50px;
+                        margin-left: 25px;
+                        transition-duration: 0.5s;
+                        @include concept.display;
+                        &:hover {
+                            transform: scale(1.1);
+                            color: #ffffff;
+                            background-color: #ff5ea3;
+                        }
+                    }
+                    a:nth-child(3) {
+                        @include concept.Font;
+                        text-decoration: underline;
+                        margin-left: 20px;
+                        &:hover {
+                            color: #ff5ea3;
+                        }
+                    }
+                }
+                .head a:first-child {
+                    width: 29%;
+                    @include concept.display($jc: flex-start);
+                    border-radius: 30px;
+                    color: #ffffff;
+                    background-color: #ff5ea3;
+                    height: 55px;
+                    @include concept.display;
+                    transition-duration: 0.5s;
+                    &:hover {
+                        transform: scale(1.2);
+                        color: #ffffff;
+                        background-color: rgb(227, 87, 213);
+                    }
+                    a {
+                        font-size: 17px;
+                        color: concept.$tc;
+                    }
+                }
+                .sub-title {
+                    font-size: 45px;
+                    font-weight: 500;
+                    color: rgb(243, 165, 178);
+                    padding-top: 40px;
+                }
+                .stars {
+                    width: 100%;
+                    padding-top: 5px;
+                    @include concept.display($jc: flex-start);
+                    p {
+                        width: 65%;
+                        @include concept.Font($fs: 18px, $c: rgb(181, 167, 167));
+                    }
+                    font-size: 20px;
+                    color: gold;
+                }
+            }
+
+            .rigth {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+    .sec-2 {
+        width: 100%;
+        @include concept.display;
+        .conteiner {
+            margin-top: 225px;
+            border-radius: 10px;
+            background-color: #726a6a2e;
+            width: 90%;
+            @include concept.display;
+            img:first-child {
+                border-right: 0.1px solid #5e5757;
+            }
+            img:nth-child(2) {
+                border-right: 0.1px solid #5e5757;
+            }
+            img {
+                padding: 50px;
+                width: 33%;
+                display: flex;
+                height: 200px;
+            }
+        }
+    }
+    .sec-3 {
+        width: 100%;
+        @include concept.display;
+        .conteiner {
+            width: 90%;
+            @include concept.display;
+            flex-direction: column;
+            .up {
+                width: 76%;
+                @include concept.display($jc: space-between);
+                margin-top: 200px;
+                h1,
+                span {
+                    @include concept.display;
+                    @include concept.title($fs: 45px);
+                }
+
+                p {
+                    margin-top: 15px;
+                    @include concept.display;
+                    width: 90%;
+                    @include concept.Font($c: rgb(181, 167, 167), $fs: 18px);
+                }
+            }
+            .down {
+                width: 100%;
+                @include concept.display($jc: space-between);
+                .box {
+                    padding: 30px 0px;
+                    border: 1px solid rgb(181, 167, 167);
+                    border-radius: 15px;
+                    margin-inline-start: 5px;
+                    margin-top: 135px;
+                    width: 32%;
+                    @include concept.display;
+                    flex-direction: column;
+                    &:hover {
+                        background-color: #a19b9b1a;
+                        border: none;
+                    }
+                    img {
+                        width: 50%;
+                    }
+                    h3 {
+                        margin-top: 30px;
+                        @include concept.Font($fs: 20px);
+                    }
+                    p {
+                        text-align: center;
+                        line-height: 28px;
+                        @include concept.display;
+                        margin-top: 20px;
+                        width: 71%;
+                        @include concept.Font($c: rgb(181, 167, 167), $fs: 18px);
+                    }
+                    i {
+                        @include concept.display;
+                        margin-top: 30px;
+                        margin-bottom: 40px;
+                        @include concept.Font($c: rgb(181, 167, 167), $fw: 800, $fs: 30px);
+                    }
+                }
+            }
+        }
+    }
+}
+.sec-4 {
+    width: 100%;
+    @include concept.display;
+    .conteiner {
+        margin-top: 200px;
+        width: 90%;
+        @include concept.display($jc: space-between);
+
+        .left {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .overlayc-sec4 {
+                width: 90%;
+                background-color: transparent;
+                background-image: radial-gradient(at center left, #b265ff 0%, rgba(14, 39, 128, 0.031372549) 60%);
+                opacity: 0.3;
+                position: absolute;
+                left: 0;
+                top: 159vw;
+                height: 100vh;
+                z-index: -1;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+        .right {
+            margin-left: 10px;
+            width: 45%;
+            @include concept.display($ai: flex-start);
+            flex-direction: column;
+            .up {
+                width: 100%;
+                @include concept.display($jc: flex-start);
+
+                h5 {
+                    width: 100%;
+                    @include concept.display($jc: flex-start);
+                    @include concept.Font($c: rgb(181, 167, 167), $fs: 20px, $fw: 600);
+                }
+
+                .title {
+                    h1 {
+                        font-size: 58px;
+                        font-weight: 700;
+                        color: #ffffff;
+                        display: inline;
+                    }
+
+                    span {
+                        font-size: 58px;
+                        font-weight: 700;
+                        color: #ff5ea3;
+                    }
+                }
+                p {
+                    width: 75%;
+                    @include concept.display($jc: flex-start);
+                    @include concept.Font($c: rgb(181, 167, 167), $fs: 18px, $fw: 500);
+                }
+            }
+            .down {
+                width: 100%;
+                @include concept.display($ai: flex-start);
+                text-align: center;
+                flex-direction: column;
+                margin-top: 40px;
+                .text-icon {
+                    line-height: 40px;
+                    width: 100%;
+                    @include concept.display($jc: flex-start);
+                    i {
+                        color: rgb(181, 167, 167);
+                        font-size: 25px;
+                        font-weight: 600;
+                    }
+
+                    p {
+                        margin-left: 10px;
+                        font-size: 17px;
+                        font-weight: 500;
+                        color: rgb(181, 167, 167);
+                    }
+                }
+                .button {
+                    margin-top: 55px;
+                    width: 33%;
+                    @include concept.display;
+                    border-radius: 8px;
+                    background-color: #ff5ea3;
+                    height: 50px;
+                    transition-duration: 0.5s;
+                    &:hover {
+                        transform: scale(1.2);
+                        color: #ffffff;
+                        background-color: rgb(227, 87, 213);
+                    }
+                    a {
+                        font-size: 17px;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sec-5 {
+    width: 100%;
+    @include concept.display;
+    position: relative;
+    .conteiner {
+        margin-top: 200px;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        border: 1px solid rgba(161, 155, 155, 0.1019607843);
+        border-radius: 10px;
+
+        .sec5-icon {
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 33%;
+            i {
+                z-index: 1;
+                font-size: 25px;
+                color: #ffffff;
+                background-color: #151938;
+                border-radius: 50%;
+                border: 1px solid rgba(161, 155, 155, 0.1019607843);
+                width: 60px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        .sec5-icon.iki {
+            left: 63% !important;
+        }
+
+        .box-1 {
+            width: 33.33%;
+            @include concept.display($ai: flex-start);
+            flex-direction: column;
+            padding: 10px 50px 10px 40px;
+            border-right: 0.5px solid rgba(161, 155, 155, 0.1019607843);
+            i {
+                padding-top: 40px;
+                color: #ff5ea3;
+                font-size: 35px;
+            }
+            h3 {
+                @include concept.Font($fs: 20px);
+                padding-top: 30px;
+            }
+            p {
+                padding-top: 20px;
+                @include concept.Font($c: rgb(181, 167, 167), $fs: 18px, $fw: 500);
+                padding-bottom: 60px;
+            }
+            &:hover {
+                background-color: rgba(161, 155, 155, 0.1019607843);
+            }
+        }
+    }
+}
+
+.sec-6 {
+    position: relative;
+    .overlayc-sec6 {
+        width: 100%;
+        background-color: transparent;
+        background-image: radial-gradient(at center right, #b265ff 0%, #0e278008 60%);
+        opacity: 0.3;
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        z-index: -1;
+    }
+    margin-top: 200px;
+    width: 100%;
+    @include concept.display;
+    .conteiner {
+        width: 90%;
+        @include concept.display;
+        .left {
+            width: 50%;
+            @include concept.display;
+            flex-direction: column;
+            h4 {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+                font-size: 20px;
+                font-weight: 600;
+                color: rgb(181, 167, 167);
+                margin-bottom: 10px;
+            }
+            .title {
+                width: 96%;
+                h1 {
+                    font-size: 58px;
+                    font-weight: 400;
+                    color: #ffffff;
+                    display: inline;
+                }
+
+                span {
+                    font-size: 58px;
+                    font-weight: 400;
+                    color: #ff5ea3;
+                }
+            }
+            .down {
+                margin-top: 45px;
+                width: 100%;
+                @include concept.display($ai: flex-start);
+                flex-direction: column;
+                div {
+                    width: 85%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    line-height: 35px;
+                    margin-bottom: 20px;
+                    background-color: rgba(161, 155, 155, 0.1019607843);
+                    height: 125px;
+                    border-radius: 10px;
+                    padding: 0 30px;
+                    transition-duration: 0.5s;
+
+                    i {
+                        color: #ff5ea3;
+                        font-size: 25px;
+                        font-weight: 600;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: rgba(161, 155, 155, 0.1019607843);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        transform: translateY(-15px);
+                    }
+                    p {
+                        width: 70%;
+                        margin-left: 32px;
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: rgb(181, 167, 167);
+                    }
+                    &:hover {
+                        background-color: #ff5ea3;
+                    }
+                    &:hover i,
+                    p {
+                        color: white;
+                    }
+                }
+            }
+        }
+        .right {
+            position: relative;
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .overlay-img6 {
+                width: 100%;
+                z-index: -1;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                position: absolute;
+                background-size: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url("https://vault.uicore.co/crypto/wp-content/uploads/sites/40/2022/07/Crypto-Choose-BG.webp");
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+.sec-7 {
+    margin-top: 200px;
+    width: 100%;
+    @include concept.display;
+
+    .conteiner {
+        width: 90%;
+        @include concept.display;
+        flex-direction: column;
+
+        .up {
+            width: 90%;
+            @include concept.display;
+            flex-direction: column;
+            .up-in {
+                width: 94%;
+                @include concept.display($jc: space-between);
+                h1 {
+                    font-size: 125px;
+                    font-weight: 500;
+                    color: #ff5ea3;
+                }
+            }
+            .down-in {
+                width: 89%;
+                @include concept.display($jc: space-between);
+                p {
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: rgb(181, 167, 167);
+                }
+            }
+        }
+
+        .down {
+            margin-top: 200px;
+            width: 90%;
+            @include concept.display;
+            .up {
+                width: 100%;
+                @include concept.display;
+
+                p {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: rgb(181, 167, 167);
+                    margin-bottom: 5px;
+                }
+            }
+            .title {
+                width: 53%;
+                @include concept.display($jc: space-between);
+
+                h1 {
+                    font-size: 58px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    display: inline;
+                }
+
+                span {
+                    font-size: 58px;
+                    font-weight: 700;
+                    color: #ff5ea3;
+                }
+            }
+        }
+    }
+}
+.sec-8 {
+    margin-top: 70px;
+    width: 100%;
+    @include concept.display($jc: space-evenly);
+    position: relative;
+    .overlayc-sec8 {
+        width: 100%;
+        background-color: transparent;
+        background-image: radial-gradient(at left, #b265ff 0%, #0e278008 60%);
+        opacity: 0.3;
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+        height: 100vh;
+        z-index: -1;
+    }
+}
+.box {
+    padding: 20px 5px;
+    border-radius: 10px;
+    background-color: rgba(161, 155, 155, 0.1019607843);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 30%;
+    margin-bottom: 20px;
+    @include concept.display;
+    flex-direction: column;
+    .conteiner {
+        width: 100%;
+        @include concept.display;
+        flex-direction: column;
+        .up {
+            width: 100%;
+            @include concept.display;
+            flex-direction: column;
+            .in-up {
+                width: 66%;
+                @include concept.display($jc: space-between);
+
+                img {
+                    width: 50%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+                h1 {
+                    font-size: 60px;
+                    font-weight: 300;
+                    color: #ffffff;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                }
+            }
+            .in-down {
+                width: 68%;
+                @include concept.display($jc: flex-start);
+                i {
+                    margin-left: 10px;
+                    font-size: 18px;
+                    color: gold;
+                }
+            }
+        }
+
+        .down {
+            margin-top: 40px;
+            line-height: 36px;
+            width: 63%;
+            @include concept.display($jc: flex-start);
+
+            p:nth-child(2) {
+                margin-top: 40px;
+                width: 100%;
+                @include concept.display($jc: flex-start);
+                font-size: 18px;
+                font-weight: 400;
+                color: #ffffff;
+            }
+            p {
+                width: 100%;
+                @include concept.display($jc: flex-start);
+                font-size: 18px;
+                font-weight: 400;
+                color: #ffffff;
+                margin-bottom: 60px;
+            }
+        }
+    }
+}
+.sec-9 {
+    margin-top: 200px;
+    width: 100%;
+    @include concept.display;
+    position: relative;
+    .conteiner {
+        width: 90%;
+        @include concept.display($ai: flex-start);
+        .left {
+            width: 45%;
+            @include concept.display($ai: flex-start);
+            flex-direction: column;
+            .title {
+                width: 100%;
+                @include concept.display($jc: flex-start);
+                h1 {
+                    line-height: 60px;
+                    display: inline;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 58px;
+                    font-weight: 500;
+                    color: #ffffff;
+                    display: inline;
+                }
+
+                span {
+                    font-size: 58px;
+                    font-weight: 500;
+                    color: #ff5ea3;
+                }
+            }
+            p {
+                margin-top: 10px;
+                width: 75%;
+                font-size: 18px;
+                font-weight: 400;
+                color: rgb(181, 167, 167);
+                margin-bottom: 5px;
+                line-height: 30px;
+            }
+
+            .button {
+                margin-top: 55px;
+                width: 28%;
+                @include concept.display;
+                border-radius: 8px;
+                background-color: transparent;
+                border: 1px solid #ff5ea3;
+                height: 60px;
+                transition-duration: 0.3s;
+                &:hover {
+                    transform: scale(1.2);
+
+                    background-color: rgb(227, 87, 213);
+                    a {
+                        color: #ffffff;
+                    }
+                }
+                a {
+                    font-size: 17px;
+                    color: #ff5ea3;
+                }
+            }
+        }
+        .right {
+            width: 50%;
+            @include concept.display($jc: flex-start);
+            flex-direction: column;
+            .overlayc-sec9 {
+                width: 100%;
+                background-color: transparent;
+                background-image: radial-gradient(at center right, #b265ff 0%, #0e278008 70%);
+                opacity: 0.2;
+                position: absolute;
+                right: 0;
+                bottom: 10px;
+                height: 100vh;
+                z-index: -1;
+            }
+            div {
+                width: 100%;
+                padding: 30px 0;
+                @include concept.display($jc: space-between);
+                line-height: 40px;
+                transition-duration: 0.5s;
+                border-bottom: 1px solid rgba(161, 155, 155, 0.1019607843);
+                border-top: 1px solid rgba(161, 155, 155, 0.1019607843);
+                &:hover {
+                    h4,
+                    i {
+                        color: rgb(181, 167, 167);
+                    }
+                }
+                h4 {
+                    font-size: 22px;
+                    font-weight: 500;
+                    color: #ffffff;
+                }
+                i {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.sec-10 {
+    .overlayc-sec10 {
+        width: 100%;
+        background-color: transparent;
+        background-image: radial-gradient(at left, #b265ff 0%, #0e278008 65%);
+        opacity: 0.3;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        z-index: -1;
+    }
+    padding: 200px 0;
+    width: 100%;
+    @include concept.display;
+    flex-direction: column;
+    position: relative;
+    .title {
+        width: 22%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+            display: inline;
+            justify-content: center;
+            align-items: center;
+            font-size: 58px;
+            font-weight: 500;
+            color: #ffffff;
+            display: inline;
+        }
+
+        span {
+            font-size: 58px;
+            font-weight: 500;
+            color: #ff5ea3;
+        }
+    }
+    .container {
+        margin-top: 50px;
+        width: 85%;
+        @include concept.display;
+        .picture {
+            width: 100%;
+            @include concept.display($jc: space-between);
+
+            .left {
+                width: 49%;
+                @include concept.display;
+                .picture-box {
+                    height: 450px;
+                    overflow: hidden;
+                    position: relative;
+                    width: 100%;
+                    border-radius: 40px;
+                    @include concept.display;
+
+                    &:hover .backimg {
+                        transform: scale(1.2);
+                    }
+
+                    .backimg {
+                        width: 100%;
+                        height: 450px;
+                        object-fit: cover;
+                        transition: transform 1s;
+                    }
+                    .text {
+                        bottom: 45px;
+                        padding: 30px;
+                        width: 90%;
+                        @include concept.display($ai: flex-start);
+                        flex-direction: column;
+                        z-index: 1;
+                        position: absolute;
+                        h2 {
+                            font-size: 35px;
+                            font-weight: 500;
+                            color: white;
+                        }
+                        .icon {
+                            margin-top: 15px;
+                            width: 100%;
+                            @include concept.display($jc: flex-start);
+                            a {
+                                font-size: 18px;
+                                font-weight: 400;
+                                color: white;
+                            }
+                            i {
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: white;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .sec10-footer {
+        padding-top: 50px;
+        width: 18%;
+        @include concept.display($jc: space-between);
+        h4 {
+            font-size: 19px;
+            font-weight: 400;
+            color: rgb(181, 167, 167);
+        }
+        a {
+            font-size: 19px;
+            font-weight: 400;
+            color: #ff5ea3;
+        }
+    }
+}
+.sec-11 {
+    width: 100%;
+    @include concept.display;
+    .container {
+        width: 90%;
+        @include concept.display;
+        flex-direction: column;
+        .title {
+            width: 60%;
+            @include concept.display;
+            line-height: 76px;
+            h1 {
+                display: inline;
+                justify-content: center;
+                align-items: center;
+                font-size: 64px;
+                font-weight: 500;
+                color: #ffffff;
+                display: inline;
+            }
+
+            span {
+                font-size: 64px;
+                font-weight: 500;
+                color: #ff5ea3;
+            }
+        }
+        .text {
+            width: 100%;
+            @include concept.display;
+            margin-top: 50px;
+            p {
+                font-size: 23px;
+                font-weight: 500;
+                color: rgb(181, 167, 167);
+            }
+        }
+        .img {
+            width: 39%;
+            margin-top: 60px;
+            @include concept.display;
+            .sub-img:nth-child(1) {
+                width: 37%;
+            }
+            .sub-img:nth-child(2) {
+                margin-left: 20px;
+            }
+            .sub-img {
+                padding: 5px 0;
+                height: 65px;
+                border-radius: 8px;
+                background-color: rgba(161, 155, 155, 0.1019607843);
+                width: 42%;
+                @include concept.display;
+                &:hover {
+                    border: 1px solid #ff5ea3;
+                    i {
+                        color: #ff5ea3;
+                    }
+                    .sub-text {
+                        p,
+                        h1 {
+                            color: #ff5ea3;
+                        }
+                    }
+                }
+
+                i {
+                    font-size: 35px;
+                    font-weight: 800;
+                    color: white;
+                }
+                .sub-text {
+                    margin-left: 12px;
+                    padding: 5px 0;
+                    width: 56%;
+                    @include concept.display($ai: flex-start);
+                    flex-direction: column;
+                    p {
+                        font-size: 10px;
+                        font-weight: 400;
+                        color: rgb(181, 167, 167);
+                    }
+                    h1 {
+                        font-size: 20px;
+                        font-weight: 400;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sec-12 {
+    .overlayc-sec12 {
+        width: 60%;
+        background-color: transparent;
+        background-image: radial-gradient(at center bottom, #b265ff 0%, #0e278008 65%);
+        opacity: 0.3;
+        position: absolute;
+        bottom: 0;
+        height: 85vh;
+        z-index: -1;
+    }
+    position: relative;
+    width: 100%;
+    @include concept.display;
+    flex-direction: column;
+    margin-top: 70px;
+    padding: 30px 30px;
+
+    .nav-footer {
+        width: 90%;
+        @include concept.display;
+        border-radius: 20px;
+        background-color: rgba(194, 175, 175, 0.108);
+        .container {
+            width: 95%;
+            @include concept.display;
+            margin-top: 100px;
+            margin-bottom: 70px;
+            .left {
+                width: 40%;
+                @include concept.display($ai: flex-start);
+                flex-direction: column;
+                margin-bottom: 35px;
+                img {
+                    width: 22%;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+                h3 {
+                    width: 100%;
+                    font-size: 20px;
+                    color: white;
+                    font-weight: 600;
+                    margin-top: 30px;
+                }
+                .inputfooter {
+                    @include concept.display($jc: space-around);
+                    width: 87%;
+                    background-color: rgba(161, 155, 155, 0.1019607843);
+                    border-radius: 8px;
+                    height: 75px;
+                    margin-top: 25px;
+                    padding: 0 0 0 10px;
+                    input {
+                        border: none;
+                        outline: none;
+                        height: 30px;
+                        @include concept.display($ai: flex-start);
+                        font-size: 16px;
+                    }
+                    .button {
+                        width: 43%;
+                        @include concept.display;
+                        border-radius: 8px;
+                        background-color: #ff5ea3;
+                        height: 60px;
+                        transition-duration: 0.5s;
+                        &:hover {
+                            transform: scale(1.1);
+                            color: #ffffff;
+                            background-color: rgb(227, 87, 213);
+                        }
+                        a {
+                            font-size: 17px;
+                            color: #ffffff;
+                        }
+                    }
+                }
+                p {
+                    margin-top: 30px;
+                    font-size: 15px;
+                    font-weight: 300;
+                    color: rgb(181, 167, 167);
+                }
+            }
+            .right {
+                width: 50%;
+                @include concept.display;
+                .container-link {
+                    width: 100%;
+                    @include concept.display($jc: space-between, $ai: flex-start);
+                    div {
+                        width: 27%;
+                        @include concept.display;
+                        ul {
+                            width: 100%;
+                            @include concept.display($ai: flex-start);
+                            flex-direction: column;
+                            line-height: 40px;
+                            h3 {
+                                font-size: 25px;
+                                font-weight: 500;
+                                color: white;
+                                margin-top: 10px;
+                                margin-bottom: 15px;
+                            }
+                            li {
+                                @include concept.display;
+                                a {
+                                    font-size: 17px;
+                                    font-weight: 400;
+                                    color: rgb(181, 167, 167);
+                                    &:hover {
+                                        color: #ff5ea3;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .endpart {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        width: 90%;
+        @include concept.display($jc: space-between);
+        div {
+            width: 31%;
+            @include concept.display;
+            a:nth-child(2) {
+                margin-left: 20px;
+            }
+            a {
+                font-size: 18px;
+                font-weight: 400;
+                color: white;
+                &:hover {
+                    color: #ff5ea3;
+                }
+            }
+            span:first-child {
+                color: rgb(181, 167, 167);
+            }
+            span:nth-child(2):hover {
+                color: rgb(227, 87, 213);
+            }
+            span {
+                font-size: 15px;
+                font-weight: 400;
+                color: #ff5ea3;
+            }
+            i {
+                font-size: 20px;
+                color: white;
+                width: 10%;
+                &:hover {
+                    color: #ff5ea3;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+// .........................................
+
+// ...............................................
+@media (min-width: 768px) and (max-width: 1024px) {
+    .nav-bar {
+        width: 100% !important;
+        padding: 0 60px !important;
+        .nav-menu,
+        .button {
+            display: none !important;
+        }
+        .nav-conteiner {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            .nac-logo {
+                width: 25% !important;
+                img {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+
+    .mobile-menu {
+        display: block !important;
+        font-size: 25px;
+        color: #ffffff;
+    }
+
+    .sec-1 {
+        width: 100% !important;
+        padding: 0 60px !important;
+        .conteiner {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            flex-direction: column !important;
+            .left {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                flex-wrap: wrap !important;
+                flex-direction: column !important;
+                padding: none !important;
+                .title {
+                    width: 100% !important;
+                    display: inline !important;
+                    justify-content: flex-start !important;
+                    h1 {
+                        font-size: 58px !important;
+                        display: inline !important;
+                        justify-content: flex-start !important;
+                    }
+                }
+                .text {
+                    width: 100% !important;
+                    p {
+                        width: 100% !important;
+                        font-size: 20px !important;
+                        font-weight: 600 !important;
+                    }
+                }
+
+                .sub-title {
+                    width: 100% !important;
+                    display: flex !important;
+                    h1 {
+                        font-size: 45px !important;
+                        font-weight: 600 !important;
+                    }
+                }
+                .stars {
+                    width: 100% !important;
+                    p {
+                        width: 50% !important;
+                    }
+                }
+            }
+            .rigth {
+                margin-top: 20px !important;
+                width: 100% !important;
+                img {
+                    width: 56% !important;
+                }
+            }
+        }
+    }
+    .sec-2 {
+        width: 100% !important;
+        padding: 0 60px !important;
+        .conteiner {
+            width: 65% !important;
+            @include concept.display;
+            flex-direction: column;
+            margin-top: 40px !important;
+            img {
+                width: 100% !important;
+                border-right: none !important;
+                height: none !important;
+                padding: 30px !important;
+            }
+            img:first-child {
+                border-bottom: 0.1px solid #5e5757;
+            }
+            img:nth-child(2) {
+                border-bottom: 0.1px solid #5e5757;
+            }
+        }
+    }
+    .sec-3 {
+        .conteiner {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            .title {
+                width: 80% !important;
+                display: inline !important;
+                justify-content: space-around !important;
+                h1 {
+                    font-size: 42px !important;
+                    display: inline !important;
+                }
+                span {
+                    font-size: 42px !important;
+                    display: inline !important;
+                }
+                p {
+                    width: 100% !important;
+                }
+            }
+            .down {
+                align-items: flex-start !important;
+                .box {
+                    margin-top: 80px;
+                }
+            }
+        }
+    }
+    .sec-4 {
+        .conteiner {
+            flex-direction: column !important;
+            .left {
+                width: 60% !important;
+            }
+            .right {
+                width: 70% !important;
+                .section-title {
+                    .title {
+                        h1 {
+                            font-size: 42px !important;
+                        }
+                        span {
+                            font-size: 42px !important;
+                        }
+                    }
+                    p {
+                        width: 65% !important;
+                        font-size: 20px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .sec-5{
+        .conteiner{
+            .box-1{
+                padding: 10px 19px 10px 40px !important;
+            }
+        }
+    }
+    .sec-6{
+        .conteiner{
+
+            flex-direction: column !important;
+            .left{
+                width: 80% !important;
+               
+                .title{
+                    line-height: 40px !important;
+                    text-align: center !important;
+                    h4{
+                        justify-content: center !important;
+                    }
+                    h1{
+                        font-size: 42px !important;
+                    }
+                    span{
+                        font-size: 42px !important;
+                    }
+                }
+                .down{
+                    align-items: center !important;
+                    width: 93% !important;
+                    div{
+                        height: 165px !important;
+                    }
+                    div:nth-child(3){height: 130px !important;}
+                }
+            }
+            .right{
+                width: 65% !important;
+                .overlay-img6{
+                    background-size: 80% !important;
+
+                }
+            }
+        }
+    }
+    .sec-7{
+        .conteiner{
+            .up{
+                .up-in{
+                   h1{ font-size: 80px !important;}
+                }
+                .down-in{
+                    width: 96% !important;
+                    p{
+                        font-size: 17px !important;
+                    }
+                }
+            }
+            .down{
+                .title{
+                    width: 60% !important;
+                    display: inline !important;
+                    h1{
+                        font-size: 42px !important;
+                    }
+                    span{ 
+                        font-size: 42px !important;
+                    }
+                }
+            }
+        }
+    }
+    .sec-8{
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        .box{
+            width: 95% !important;
+        }
+    }
+    .sec-9{
+        .conteiner{
+            flex-direction: column !important;
+            align-items: center !important;
+            .left{ text-align: center !important;
+                width: 100% !important;
+                align-items: center !important;
+                .button{
+                    width: 19% !important;
+                }
+                p{
+                    width: 41% !important;
+                }
+                .title{
+                    display: inline !important;
+                    h1{
+                        font-size: 42px !important;
+                    }
+                    span{
+                        font-size: 42px !important;
+                    }
+                   
+                }
+            }
+            .right{
+                width: 95% !important;
+                margin-top: 20px !important;
+            }
+        }
+    }
+    .sec-10{
+        .title{
+            width: 25% !important;
+            h1{
+                font-size: 42px !important;
+            }
+            span{
+                font-size: 42px !important;
+            }
+        }
+        .container{
+            width: 95% !important;
+            .picture{
+                justify-content: space-around !important;
+            }
+            .picture-box{
+                 height: 290px !important;
+                 width: 90% !important;
+                .backimg{
+                    height: 290px!important;
+                }
+                .text{
+                    padding: 0px!important;
+                    h2{
+                        font-size: 18px !important;
+                    }
+
+                    .icon{
+                        a{
+                            font-size: 18px !important;
+                        }
+                    }
+                }
+
+            }
+        }
+        .sec10-footer{
+            width: 28% !important;
+        }
+    }
+    .sec-11{
+        .container{
+            .title{
+                width: 90% !important;
+                h1{
+                    font-size: 48px !important;
+                }
+                span{
+                    font-size: 48px !important;
+                }
+            }
+            .text{
+                margin-top: 30px !important;
+            }
+            .img{
+                width: 58% !important;
+            }
+        }
+    }
+    .sec-12{
+        .nav-footer{
+            width: 95% !important;
+            .container{
+                flex-direction: column !important;
+                width: 100% !important;
+                align-items: flex-start !important;
+                margin-bottom: 50px !important;
+                
+                .left{
+                    width: 55% !important;
+                    margin-left: 70px !important;
+                }
+                .right{
+                    margin-left: 70px !important; 
+                    width: 72% !important;
+                }
+            }
+        }
+        .endpart{
+            flex-direction: column !important;
+            line-height: 50px !important;
+            div{
+                width: 50% !important;
+                
+            }
+        }
+    }
+}
+@media (min-width: 400px) and (max-width: 767px) {
+    .nav-bar {
+        width: 100% !important;
+        padding: 0 60px !important;
+        .nav-menu,
+        .button {
+            display: none !important;
+        }
+        .nav-conteiner {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            .nac-logo {
+                width: 25% !important;
+                img {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+
+    .mobile-menu {
+        display: block !important;
+        font-size: 25px;
+        color: #ffffff;
+    }
+
+    .sec-1 {
+        width: 100% !important;
+        padding: 0 60px !important;
+        .conteiner {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            flex-direction: column !important;
+            .left {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                flex-wrap: wrap !important;
+                flex-direction: column !important;
+                padding: none !important;
+                .title {
+                    width: 100% !important;
+                    display: flex;
+                    justify-content: flex-start !important;
+                    h1 {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start !important;
+                    }
+                }
+                .text {
+                    width: 100% !important;
+                    p {
+                        width: 100% !important;
+                        font-size: 20px !important;
+                        font-weight: 600 !important;
+                    }
+                }
+
+                .sub-title {
+                    width: 100% !important;
+                    display: flex !important;
+                    h1 {
+                        font-size: 45px !important;
+                        font-weight: 600 !important;
+                    }
+                }
+                .stars {
+                    width: 100%;
+                    p {
+                        width: 56% !important;
+                    }
+                }
+            }
+            .rigth {
+                margin-top: 20px !important;
+                width: 100% !important;
+                img {
+                    width: 56% !important;
+                }
+            }
+        }
+    }
+    .sec-2 {
+        width: 100% !important;
+        padding: 0 60px !important;
+        .conteiner {
+            width: 65% !important;
+            @include concept.display;
+            flex-direction: column;
+            margin-top: 40px !important;
+            img {
+                width: 100% !important;
+                border-right: none !important;
+                height: none !important;
+                padding: 30px !important;
+            }
+            img:first-child {
+                border-bottom: 0.1px solid #5e5757;
+            }
+            img:nth-child(2) {
+                border-bottom: 0.1px solid #5e5757;
+            }
+        }
+    }
+}
